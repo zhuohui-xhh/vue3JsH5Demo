@@ -6,6 +6,8 @@ import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from '@vant/auto-import-resolver'
 import vue from '@vitejs/plugin-vue'
 import { viteMockServe } from 'vite-plugin-mock'
+// npm i vite-plugin-imagemin -D
+import viteImagemin from 'vite-plugin-imagemin' //图片压缩
 
 // https://vitejs.dev/config/
 // 配置文件中访问环境变量
@@ -58,6 +60,34 @@ export default defineConfig(({ command, mode }) => {
         // dirs:这里引入并注册了组件
         // 要自动导入的目录的路径 :这里的默认值也是：'./src/components'
         dirs: ['./src/components']
+      }),
+      // 图片压缩
+      viteImagemin({
+        gifsicle: {
+          optimizationLevel: 7,
+          interlaced: false
+        },
+        optipng: {
+          optimizationLevel: 7
+        },
+        mozjpeg: {
+          quality: 20
+        },
+        pngquant: {
+          quality: [0.8, 0.9],
+          speed: 4
+        },
+        svgo: {
+          plugins: [
+            {
+              name: 'removeViewBox'
+            },
+            {
+              name: 'removeEmptyAttrs',
+              active: false
+            }
+          ]
+        }
       })
     ],
     resolve: {
