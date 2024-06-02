@@ -1,26 +1,28 @@
-<script setup>
-console.log(import.meta.env.VITE_APP_TITLE)
-// import { showToast } from 'vant'
-showToast('No need to import showToast')
-showDialog({
-  title: '标题',
-  message: '代码是写出来给人看的，附带能在机器上运行。'
-}).then(() => {
-  // on close
-})
-</script>
+<script setup></script>
 
 <template>
-  <div class="name">123123123</div>
-  <van-button>默认按钮</van-button>
-  <!-- <van-button type="primary">主要按钮</van-button> -->
-  <!-- <van-button type="info">信息按钮</van-button>
-  <van-button type="warning">警告按钮</van-button>
-  <van-button type="danger">危险按钮</van-button> -->
+  <van-row class="header">
+    <van-col span="2" class="flex-column-align-center">
+      <van-icon class="aa" name="arrow-left" />
+    </van-col>
+    <van-col span="18" class="flex-column-align-center">支付宝</van-col>
+    <van-col span="2" class="flex-column-align-center"></van-col>
+  </van-row>
 </template>
 
 <style scoped lang="scss">
-.name {
+.header {
   color: $red;
+  width: 750px;
+  height: 48px;
+  background-color: red;
+  color: #fff;
+  ::v-deep .van-col {
+    display: flex;
+    font-size: 30px;
+    .van-icon-arrow-left {
+      font-size: 30px;
+    }
+  }
 }
 </style>
