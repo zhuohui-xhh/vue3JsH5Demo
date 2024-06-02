@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+getInfo({ page: 1, size: 10 }).then((res) => {
+  console.log(res, 'res')
+})
+</script>
 
 <template>
   <van-row class="header">

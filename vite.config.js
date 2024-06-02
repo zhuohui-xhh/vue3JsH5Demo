@@ -5,6 +5,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from '@vant/auto-import-resolver'
 import vue from '@vitejs/plugin-vue'
+import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vitejs.dev/config/
 // 配置文件中访问环境变量
@@ -15,6 +16,12 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [
       vue(),
+      // mock数据配置
+      viteMockServe({
+        // default
+        mockPath: 'mock',
+        localEnabled: command === 'serve'
+      }),
       // 自动导入组件
       AutoImport({
         //预设名称或自定义导入映射: 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
@@ -33,7 +40,7 @@ export default defineConfig(({ command, mode }) => {
         // 要自动导入的目录的路径,这里自动导入的是js文件，里面例如 可以
         // 可以省略这个引入：// import { getDay } from './util/util.js'
         // 直接调用getDay()
-        dirs: ['./src/util/**', './src/api/**'],
+        dirs: ['./src/utils/**', './src/api/**'],
 
         // 自动导入 Vant Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
         resolvers: [VantResolver()],

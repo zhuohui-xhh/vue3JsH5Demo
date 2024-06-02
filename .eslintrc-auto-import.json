@@ -70,6 +70,9 @@
     "watchPostEffect": true,
     "watchSyncEffect": true,
     "showToast": true,
-    "showDialog": true
+    "showDialog": true,
+    "getInfo": true,
+    "request": true,
+    "showNotify": true
   }
 }
