@@ -1,5 +1,13 @@
 <script setup>
 console.log(import.meta.env.VITE_APP_TITLE)
+// import { showToast } from 'vant'
+showToast('No need to import showToast')
+showDialog({
+  title: '标题',
+  message: '代码是写出来给人看的，附带能在机器上运行。'
+}).then(() => {
+  // on close
+})
 </script>
 
 <template>

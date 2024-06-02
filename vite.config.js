@@ -3,7 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { VantResolver } from 'unplugin-vue-components/resolvers'
+import { VantResolver } from '@vant/auto-import-resolver'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
@@ -47,11 +47,7 @@ export default defineConfig(({ command, mode }) => {
       }),
       // 自动注册组件
       Components({
-        resolvers: [
-          // Auto register Vant Plus components
-          // 自动导入 Vant Plus 组件
-          VantResolver()
-        ],
+        resolvers: [VantResolver()],
         // dirs:这里引入并注册了组件
         // 要自动导入的目录的路径 :这里的默认值也是：'./src/components'
         dirs: ['./src/components']
