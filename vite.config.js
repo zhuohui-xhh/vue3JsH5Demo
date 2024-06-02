@@ -8,7 +8,8 @@ import vue from '@vitejs/plugin-vue'
 import { viteMockServe } from 'vite-plugin-mock'
 // npm i vite-plugin-imagemin -D
 import viteImagemin from 'vite-plugin-imagemin' //图片压缩
-
+// npm i vite-plugin-compression -D
+import viteCompression from 'vite-plugin-compression'
 // https://vitejs.dev/config/
 // 配置文件中访问环境变量
 export default defineConfig(({ command, mode }) => {
