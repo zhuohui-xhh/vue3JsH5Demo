@@ -9,7 +9,14 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "format-check": "prettier --check src/"
+    "format-check": "prettier --check src/",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/**": [
+      "npm run lint",
+      "npm run format"
+    ]
   },
   "dependencies": {
     "pinia": "^2.1.7",
@@ -22,6 +29,8 @@
     "@vue/eslint-config-prettier": "^9.0.0",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
     "prettier": "^3.2.5",
     "vite": "^5.2.8"
   }
