@@ -1,24 +1,13 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-
 console.log(import.meta.env.VITE_APP_TITLE)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <van-button>默认按钮</van-button>
+  <van-button type="primary">主要按钮</van-button>
+  <van-button type="info">信息按钮</van-button>
+  <van-button type="warning">警告按钮</van-button>
+  <van-button type="danger">危险按钮</van-button>
 </template>
 
 <style scoped>
