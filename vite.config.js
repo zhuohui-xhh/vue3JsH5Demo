@@ -73,6 +73,24 @@ export default defineConfig(({ command, mode }) => {
           additionalData: '@import "./src/styles/variables.module.scss";'
         }
       }
+    },
+    // 本地代理服务器
+    server: {
+      port: env.VITE_APP_PORT, // 端口:使用的是，环境变量中的配置
+      https: false, // 是否开启 https
+      hmr: true, // 是否开启自动刷新
+      open: true, // 是否开启自动打开浏览器
+      cors: true, //为开发服务器配置 CORS , 默认启用并允许任何源
+      // 反向代理配置
+      proxy: {
+        // 带选项写法：http://localhost:5173/api/bar
+        //-> http://jsonplaceholder.typicode.com/bar
+        '/api': {
+          target: 'http://jsonplaceholder.typicode.com',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '')
+        }
+      }
     }
   }
 })
