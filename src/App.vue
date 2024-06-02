@@ -1,7 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-var a = 10
+var a = 103434
+var b = 456
+console.log(a, b)
 </script>
 
 <template>
