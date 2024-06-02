@@ -15,6 +15,7 @@ export default defineConfig(({ command, mode }) => {
   // 根据当前工作目录中的 `mode` 加载 .env 文件
   // 设置第三个参数为 '' 来加载所有环境变量，而不管是否有 `VITE_` 前缀。
   const env = loadEnv(mode, process.cwd(), '')
+  const isProduction = mode === 'production'
   return {
     plugins: [
       vue(),
@@ -60,6 +61,15 @@ export default defineConfig(({ command, mode }) => {
         // dirs:这里引入并注册了组件
         // 要自动导入的目录的路径 :这里的默认值也是：'./src/components'
         dirs: ['./src/components']
+      }),
+      //代码体积压缩--生成的gizp压缩文件需要nginx配置一个操作才可以正常访问
+      viteCompression({
+        algorithm: 'gzip',
+        threshold: 10240,
+        verbose: false,
+        // 配置：是否删除源文件，如果是npm run build:test 不删除源文件方便做本地预览npm run preview;
+        // 如果是npm run build:pro ;这删除压缩后的源文件，减小包体积，方便做部署；
+        deleteOriginFile: isProduction
       }),
       // 图片压缩
       viteImagemin({
