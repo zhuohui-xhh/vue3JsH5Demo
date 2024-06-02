@@ -58,6 +58,14 @@ export default defineConfig(({ command, mode }) => {
         // 配置scr路径别名
         '@': fileURLToPath(new URL('./src', import.meta.url))
       }
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          javascriptEnabled: true,
+          additionalData: '@import "./src/styles/variables.module.scss";'
+        }
+      }
     }
   }
 })

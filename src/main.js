@@ -1,5 +1,6 @@
 import './assets/main.css'
-
+import 'normalize.css' // 新增-安装公共样式
+import './styles/index.scss' // 新增
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
